@@ -1,43 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>Simple Interest Calculator</title>
+
+<head>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class='maindiv'>
-            <h1>Simple Interest Calculator</h1>
+    <!--reference script-->
+    <link rel="stylesheet" href="style.css"> <!-- reference styling sheet -->
+    <title>Simple Interest Calculator</title> <!-- title the page -->
+</head>
 
-            Amount <input type="number"  id="principal" min="1" oninput="validity.valid||(value='');">  <br/>
-            Rate <input type="range"  id="rate" min="1" max="20" step="0.25" value="10.25" onChange="change();"> 
-            <span id="resultRate"> 10.25</span>%  <br/>
-            <script>
-            var result = document.getElementById("resultRate");
-            var mine = document.getElementById("rate");
-            function change(){
-            result.innerText = mine.value;
-            }
-            </script>  <br/>
-            No. of Years <!--input type="number"  id="years"-->
+<body>
 
-            <select name="years" id="years">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                </select> <br/>
-            
+    <div class="maindiv">
+        <h1>Simple Interest Calculator</h1> <br> 
+        <form id="form1" onsubmit="return check_principal()">
+            <!-- create form that checks the principal when submitted -->
+            Amount<input type="number" id="principal" min="1"> <br> <br>
+            Interest Rate<input type="range" id="rate" name="rate" min="1" max="20" step="0.25" value="10.25"
+                onchange="change_rate()">
+            <span id="change">10.25</span>% <br><br>
+            No. of Years<select name="years" id="years" value="1"></select> <br><br>
+            <input type="button" value="Compute Interest" id="comp_button" onclick="compute()"> <br> <br>
 
-            <button onclick="compute()">Compute Interest</button> <br>
-            <span id="result"></span>
-        </div>
-    </body>
-    <footer>&#169 Evryone Can Get Rich</footer>
+        </form>
+        <span id="result"> </span>
+        <br><br>
+        <footer>&copy; Everyone Can Get Rich</footer> <!-- create footer with copyright -->
+    </div>
+
+</body>
+
 </html>
